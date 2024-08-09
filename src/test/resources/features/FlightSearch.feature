@@ -5,8 +5,8 @@ Feature: Flight Search
     Then verify user is on home screen
     When user click on flight tab
     Then verify user is on flight search page
-    When user enters "Chicago" into flying from
-    And user enters "Florida" into flying to
-    And select date from "12 Aug 2024" to "23 Aug 2024"
+    When user enters "from.city" into flying from
+    And user enters "to.city" into flying to
+    And select date from "from.date" to "to.date"
     And click on search button
     Then verify flight listing page is displayed

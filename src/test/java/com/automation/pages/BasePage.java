@@ -12,21 +12,37 @@ import java.time.Duration;
 public class BasePage {
 
     AppiumDriver driver;
+    WebDriverWait wait;
 
     BasePage() {
         driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public boolean isPresent(WebElement element) {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;
         } catch (Exception e) {
             return false;
         }
     }
+
+    public void waitForElementToBeVisible(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitForElementToBeClickable(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public void clickOnElementIfPresent(WebElement element) {
+        if (isPresent(element)) {
+            element.click();
+        }
+    }
+
 
 }
 

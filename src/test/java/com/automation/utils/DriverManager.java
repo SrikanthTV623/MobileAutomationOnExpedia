@@ -13,15 +13,15 @@ public class DriverManager {
 
     public static void createDriver() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("deviceName", "RZ8N9250P5Z");
-        capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("app", "D:\\MobileAutomation\\expedia.apk");
-        capabilities.setCapability("appActivity","com.expedia.bookings.activity.SearchActivity");
-        capabilities.setCapability("appPackage","com.expedia.bookings");
+        capabilities.setCapability("platformName", ConfigReader.getConfigValue("platform.name"));
+        capabilities.setCapability("deviceName", ConfigReader.getConfigValue("device.name"));
+        capabilities.setCapability("automationName", ConfigReader.getConfigValue("automation.name"));
+        capabilities.setCapability("app", ConfigReader.getConfigValue("app.path"));
+        capabilities.setCapability("appActivity", ConfigReader.getConfigValue("app.activity"));
+        capabilities.setCapability("appPackage", ConfigReader.getConfigValue("app.package"));
 
         driver = new AndroidDriver(capabilities);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     public static AppiumDriver getDriver() {

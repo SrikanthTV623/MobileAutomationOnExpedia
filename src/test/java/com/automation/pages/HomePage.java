@@ -20,16 +20,19 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//android.widget.TextView[@text='Flights']")
     WebElement flightsTab;
 
-    public void openApplication() {
-        if (isPresent(acceptBtn)) {
-            acceptBtn.click();
-        }
+    @FindBy(id = "com.expedia.bookings:id/btn_accept_cookies")
+    WebElement acceptCookiesBtn;
 
-        if (isPresent(getStartedBtn)) {
-            getStartedBtn.click();
-            closeBtn.click();
-            letsGoBtn.click();
-        }
+    @FindBy(xpath = "//android.view.View[@resource-id='PreSignInDismissIcon']")
+    WebElement advCloseBtn;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Not now']")
+    WebElement notNowBtn;
+
+    public void openApplication() {
+        clickOnElementIfPresent(acceptCookiesBtn);
+        clickOnElementIfPresent(advCloseBtn);
+        clickOnElementIfPresent(notNowBtn);
     }
 
 
