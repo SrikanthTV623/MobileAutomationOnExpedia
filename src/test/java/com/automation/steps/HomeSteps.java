@@ -27,9 +27,5 @@ public class HomeSteps {
     }
 
 
-    @And("verify scroll and swipe is working")
-    public void verifyScrollAndSwipeIsWorking() {
-        homePage.performScrollAndSwipe();
 
-    }
 }

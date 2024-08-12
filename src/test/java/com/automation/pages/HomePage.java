@@ -78,12 +78,12 @@ public class HomePage extends BasePage {
 
             scrollOrSwipe(x + cardWidth, y + cardHeight / 2, 0, y + cardHeight / 2);
             previousTitle = currentTitle;
-            exploreStayFirstCard = driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Explore stays in popular destinations\"]/following-sibling::android.view.View//android.widget.TextView[1]"))
+            exploreStayFirstCard = driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Explore stays in popular destinations\"]/following-sibling::android.view.View//android.widget.TextView[1]"));
             currentTitle = exploreStayFirstCard.getText();
+            currentCard = driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Explore stays in popular destinations\"]/following-sibling::android.view.View/android.view.View"));
             System.out.println("Previous Title  " + previousTitle);
             System.out.println("Current Title  " + currentTitle);
         }
-
 
     }
 
