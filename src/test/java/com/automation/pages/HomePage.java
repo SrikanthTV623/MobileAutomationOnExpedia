@@ -66,7 +66,7 @@ public class HomePage extends BasePage {
         }
 
         // Swipe Logic
-        WebElement currentCard = driver.findElement(By.xpath("//android.widget.TextView[@content-desc='Popular cities to explore']/following-sibling::android.view.View/android.view.View/android.view.View"));
+        WebElement currentCard = driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Explore stays in popular destinations\"]/following-sibling::android.view.View/android.view.View"));
         String currentTitle = exploreStayFirstCard.getText();
         String previousTitle = "";
 
@@ -77,12 +77,9 @@ public class HomePage extends BasePage {
             int cardHeight = currentCard.getSize().getHeight();
 
             scrollOrSwipe(x + cardWidth, y + cardHeight / 2, 0, y + cardHeight / 2);
-
             previousTitle = currentTitle;
-
-            exploreStayFirstCard = driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Explore stays in popular destinations\"]/following-sibling::android.view.View//android.widget.TextView[1]"));
+            exploreStayFirstCard = driver.findElement(By.xpath("//android.widget.TextView[@content-desc=\"Explore stays in popular destinations\"]/following-sibling::android.view.View//android.widget.TextView[1]"))
             currentTitle = exploreStayFirstCard.getText();
-
             System.out.println("Previous Title  " + previousTitle);
             System.out.println("Current Title  " + currentTitle);
         }
